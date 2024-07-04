@@ -1,0 +1,65 @@
+.social-media-btn {
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  img {
+    width: 16px;
+  }
+  &:hover {
+    background-color: whitesmoke;
+    cursor: pointer;
+  }
+}
+
+.register {
+  min-height: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: rem(60px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  .register-content {
+    // width: 50%;
+    // margin: 0 auto;
+    form {
+      // width: 50%;
+
+      label {
+        font-weight: 500;
+      }
+      input {
+        padding: 5px 10px;
+      }
+    }
+  }
+
+  & .computir {
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  a {
+    text-decoration: underline;
+    color: #000;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: rem(20px);
+    flex-direction: column;
+    .register-content {
+      width: 100%;
+      form {
+        width: 100%;
+      }
+    }
+  }
+}

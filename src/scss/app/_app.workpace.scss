@@ -1,0 +1,140 @@
+$step-bg-color: #ffcc02;
+$step-text-color: #000;
+
+.step-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 20px;
+  flex-wrap: wrap; // Allow wrapping for responsiveness
+
+  .step-item {
+    position: relative;
+    z-index: 1;
+    cursor: pointer; // Add pointer cursor for better UX
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: 600;
+    background-color: $step-bg-color;
+    color: $step-text-color;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-align: center;
+    flex: 1;
+    margin: 5px; // Adjust margin for spacing
+  }
+
+  .step-line {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background-color: $step-bg-color;
+    transform: translateY(-50%);
+    z-index: 0;
+    transition: width 0.5s;
+
+    &.active {
+      left: 20px;
+      right: 20px;
+    }
+  }
+}
+.workspaceActive{
+  background-color:$step-bg-color ;
+}
+.form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .form-group {
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 1rem;
+  }
+}
+
+.font-weight-bold {
+  font-weight: 600 !important;
+}
+
+.btn-custom {
+  width: 344px;
+  height: 32px;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .step-container {
+    flex-direction: column;
+    align-items: center;
+
+    .step-item {
+      margin: 5px 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .step-line {
+      display: none;
+    }
+  }
+}
+
+.custom-file-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.custom-file-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2; /* Ensure it is above the label */
+}
+
+.custom-file-label {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  box-sizing: border-box;
+  position: relative;
+  padding-right: 40px; /* Adjust based on icon size */
+  z-index: 1; /* Ensure it is below the input */
+  pointer-events: none; /* Prevent it from blocking clicks */
+}
+
+.custom-file-label span {
+  pointer-events: none; /* Prevent text from blocking clicks */
+}
+
+.custom-file-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  width: 24px; /* Adjust based on your icon size */
+  height: 24px; /* Adjust based on your icon size */
+  pointer-events: none; /* Ensure the icon does not block the input click */
+  z-index: 1; /* Ensure it is below the input */
+}

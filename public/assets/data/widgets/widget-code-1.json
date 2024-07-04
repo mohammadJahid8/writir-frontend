@@ -1,0 +1,30 @@
+<Card className="border-0 overflow-hidden rounded" data-bs-theme="dark">
+  <div className="h-250px d-flex align-items-center">
+    <img src="assets/img/gallery/widget-cover-1.jpg" alt="" className="card-img" />
+  </div>
+  <div className="card-img-overlay d-flex flex-column bg-black bg-opacity-60 rounded">
+    <div className="flex-fill">
+      <div className="d-flex align-items-center">
+        <div data-bs-theme="dark"><h6>Youtube</h6></div>
+        <div className="dropdown dropdown-icon ms-auto">
+          <a href="#/" className="text-white" data-bs-toggle="dropdown"><i className="fa fa-ellipsis-h"></i></a>
+          <div className="dropdown-menu dropdown-menu-end">
+            <a href="//www.youtube.com/watch?v=_AS5nu4u1ss" className="dropdown-item">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="//www.youtube.com/watch?v=_AS5nu4u1ss" data-lity className="text-white text-decoration-none d-flex align-items-center">
+      <div className="bg-theme bg-gradient text-theme-color w-50px h-50px rounded-3 d-flex align-items-center justify-content-center">
+        <i className="fa fa-play fa-lg"></i>
+      </div>
+      <div className="ms-3 flex-1">
+        <div className="fw-semibold">New Videos - Behind The Forest Tours</div>
+        <div className="fs-13px text-white text-opacity-75">
+          <i className="far fa-eye"></i> 892 views 
+          <i className="far fa-clock ms-3"></i> 39min ago
+        </div>
+      </div>
+    </a>
+  </div>
+</Card>

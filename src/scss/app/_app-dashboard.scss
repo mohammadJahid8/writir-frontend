@@ -1,0 +1,67 @@
+// Define breakpoints for responsiveness
+$breakpoint-small: 576px;
+$breakpoint-medium: 768px;
+$breakpoint-large: 992px;
+
+.popup-position {
+  position: fixed; /* Ensure the popup is always fixed in position relative to the viewport */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Smooth transition */
+  opacity: 0;
+  transform: translateY(20px); /* Start slightly shifted down */
+
+  &.show {
+    opacity: 1;
+  }
+
+  /* Default position */
+  right: 5vw;
+  bottom: 5vh;
+
+  /* Adjustments for smaller screens */
+  @media (max-width: $breakpoint-small) {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  /* Adjustments for medium screens */
+  @media (min-width: $breakpoint-small) and (max-width: $breakpoint-medium) {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  /* Adjustments for large screens */
+  @media (min-width: $breakpoint-medium) and (max-width: $breakpoint-large) {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  /* Extra large screens */
+  @media (min-width: $breakpoint-large) {
+    right: 10px;
+    bottom: 35px;
+  }
+}
+
+.popup-text {
+  color: #ffff !important;
+}
+
+// project-layout
+.project-layout {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  gap: 20px; /* Optional: Adds gap between grid items */
+}
+
+@media (max-width: 768px) {
+  .project-layout {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .project-layout {
+    grid-template-columns: repeat(1, minmax(100%, 1fr));
+  }
+}

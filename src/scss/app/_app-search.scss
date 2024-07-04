@@ -1,0 +1,88 @@
+.search-input-container {
+  display: flex;
+}
+
+//FIXME: commented all the input group classes
+
+.search-input-group {
+  display: flex;
+  width: 720px;
+  height: 44px;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+}
+.search-input-group:focus-within {
+  border: 2px solid #3399ff;
+  border-radius: 4px;
+}
+
+.search-input-group input:focus,
+.search-input-group textarea:focus,
+.search-input-group select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(51, 153, 255, 0.5);
+}
+
+.search-input-group-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none !important;
+}
+.search-input-group-prepend {
+  background-color: #fff;
+}
+.search-input-group-prepend .search-input-group-text {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border-right: none;
+  background: #fff !important;
+}
+
+.search-form-control {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+}
+.search-input-group-append {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+.search-input-group-append .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  background-color: #ffffff;
+  border-left: none;
+  border: none;
+  cursor: pointer;
+}
+@media (max-width: 767.98px) {
+  .text-truncate-custom {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+}
+.searchFont {
+  font-size: 10px !important;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .searchFont {
+    font-size: 12px !important;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .searchFont {
+    font-size: 12px !important;
+  }
+}

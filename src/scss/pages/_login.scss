@@ -1,0 +1,21 @@
+.login {
+  min-height: 100vh;
+  padding: rem(60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1500px;
+  margin: 0 auto;
+  width: 30%;
+
+  & .login-content {
+    margin: 0 auto;
+    position: relative;
+    flex: 1;
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: rem(20px);
+    width: 100%;
+  }
+}

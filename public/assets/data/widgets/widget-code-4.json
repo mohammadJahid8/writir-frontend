@@ -1,0 +1,97 @@
+import React, { useEffect } from 'react';
+import Chart from 'chart.js/auto';
+import { Card, CardBody } from './../../components/card/card.jsx';
+
+function Widgets() {
+  var chart = '';
+  
+  function renderChart() {
+    var bodyFontFamily = (getComputedStyle(document.body).getPropertyValue('--bs-body-font-family')).trim();
+    var bodyFontWeight = (getComputedStyle(document.body).getPropertyValue('--bs-body-font-weight')).trim();
+    var bodyColor = (getComputedStyle(document.body).getPropertyValue('--bs-body-color')).trim();
+    var borderColor = (getComputedStyle(document.body).getPropertyValue('--bs-border-color')).trim();
+    var warning = (getComputedStyle(document.body).getPropertyValue('--bs-warning')).trim();
+    var theme = (getComputedStyle(document.body).getPropertyValue('--bs-theme')).trim();
+    
+    Chart.defaults.font.family = bodyFontFamily;
+    Chart.defaults.font.size = 12;
+    Chart.defaults.color = bodyColor;
+    Chart.defaults.borderColor = borderColor;
+    Chart.defaults.plugins.legend.display = true;
+    Chart.defaults.plugins.tooltip.padding = { left: 8, right: 12, top: 8, bottom: 8 };
+    Chart.defaults.plugins.tooltip.cornerRadius = 8;
+    Chart.defaults.plugins.tooltip.titleMarginBottom = 6;
+    Chart.defaults.plugins.tooltip.titleFont.family = bodyFontFamily;
+    Chart.defaults.plugins.tooltip.titleFont.weight = bodyFontWeight;
+    Chart.defaults.plugins.tooltip.footerFont.family = bodyFontFamily;
+    Chart.defaults.plugins.tooltip.displayColors = true;
+    Chart.defaults.plugins.tooltip.boxPadding = 6;
+    Chart.defaults.scale.grid.color = borderColor;
+    Chart.defaults.scale.beginAtZero = true;
+    
+    var chartContainer = document.getElementById('chartContainer');
+    if (chart) {
+      chart.destroy();
+    }
+    if (chartContainer) {
+      chartContainer.innerHTML = '<canvas id="widgetBarChart" className="w-100" height="150"></canvas>';
+      chart = new Chart(document.getElementById('widgetBarChart'), {
+        type: 'bar',
+        data: {
+          labels: ['S','M','T','W','T','F','S'],
+          datasets: [{
+            label: 'Total Visitors',
+            data: [37,31,36,34,43,31,50],
+            backgroundColor: theme,
+            borderColor: 'transparent'
+          }, {
+            label: 'Returning Visitors',
+            data: [27,21,16,14,23,11,30],
+            backgroundColor: warning,
+            borderColor: 'transparent'
+          }]
+        }
+      });
+    }
+  }
+  
+  useEffect(() => {
+    renderChart();
+    
+    document.addEventListener('theme-reload', () => {
+      renderChart();
+    });
+    // eslint-disable-next-line
+  }, []);
+  
+  return (
+    <div>
+      <Card>
+        <CardHeader className="fw-bold bg-none d-flex align-items-center">
+          Weekly Web Analytics
+          <span className="badge ms-3 fw-semibold bg-theme bg-opacity-15 text-theme">11 Mar - 18 Mar</span>
+          <a href="#/" className="ms-auto text-muted text-decoration-none" data-toggle="card-expand"><i className="fa fa-expand"></i></a>
+        </CardHeader>
+        <CardBody className="text-body text-center">
+          <div id="chartContainer"></div>
+        </CardBody>
+        <div className="list-group list-group-flush">
+          <div className="list-group-item border-top-0 rounded-top-0 d-flex align-items-center">
+            <div className="w-40px h-40px bg-theme bg-opacity-15 text-theme d-flex align-items-center justify-content-center rounded-pill">
+              <i className="fa fa-bar-chart fs-20px"></i>
+            </div>
+            <div className="flex-fill px-3 py-1">
+              <div className="fw-semibold">Total Visitors</div>
+              <div className="small text-body text-opacity-50">11 Mar - 18 Mar</div>
+            </div>
+            <div>
+              <div className="fw-semibold h3 m-0">1.3m</div>
+            </div>
+          </div>
+        </div>
+      </Card>
+    </div>
+  )
+}
+
+export default Widgets;

@@ -1,0 +1,209 @@
+.app {
+  padding-top: $app-header-height;
+  font-family: 'Inter Tight', sans-serif;
+  @include media-breakpoint-down(md) {
+    padding-top: $app-header-height;
+  }
+}
+
+#webpack-dev-server-client-overlay-div,
+iframe {
+  display: none !important;
+}
+
+.dashboard {
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .nav-pills {
+    display: flex;
+    flex-wrap: nowrap;
+
+    @media (max-width: 640px) {
+      font-size: 13px;
+    }
+  }
+
+  .nav-pills .nav-item {
+    .active {
+      color: black;
+      background: white;
+      border: 1px solid var(--Gray-200, #e7e7e8);
+      box-shadow: 0px 1px 2px 0px #0000000d;
+    }
+  }
+
+  .home-input-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+
+    .menu-search {
+      margin: 0 auto;
+      position: relative;
+      max-width: rem(418px);
+      flex: 1;
+
+      .menu-search-icon {
+        position: absolute;
+        width: rem(46px);
+        top: 0;
+        bottom: 0;
+        font-size: rem(16px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @if $enable-rtl {
+          right: 0;
+        } @else {
+          left: 0;
+        }
+        @include media-breakpoint-down(md) {
+          width: rem(40px);
+        }
+      }
+      .menu-search-input {
+        .form-control {
+          height: rem(45px);
+          border-radius: 12px;
+          border: 0.92px solid #c8c8c863;
+          box-shadow: 0px 0px 9.17px 0px #0000001a;
+          background: #d7dadf59;
+          font-size: rem(16px);
+          background: var(--#{$prefix}app-header-input-bg);
+
+          &::placeholder {
+            color: $gray-500;
+          }
+
+          @if $enable-rtl {
+            padding-right: rem(46px);
+          } @else {
+            padding-left: rem(46px);
+          }
+        }
+      }
+    }
+  }
+}
+
+.text-gray {
+  color: $gray-300;
+}
+
+.text-orange2 {
+  color: $orange2;
+}
+
+.rantir-button {
+  background-color: $bg-2;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 6px;
+  width: 100%;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &img {
+    width: 60px;
+  }
+  &i {
+    background-color: white;
+    padding: 5px;
+
+    border-radius: 50%;
+  }
+  &sup {
+    font-size: 10px;
+  }
+}
+
+.api-input {
+  position: relative;
+
+  .api-input-field {
+    height: 50px;
+    border-radius: 8px;
+    padding-right: 80px;
+  }
+
+  .api-input-button {
+    height: 50px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    z-index: 2;
+  }
+}
+
+.form-check {
+  .form-check-input.custom-radio {
+    width: 1.25em;
+    height: 1.25em;
+    border: 1px solid #000;
+    border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none; /* Remove default styles in Safari */
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+
+    &:checked {
+      background-color: #000;
+      border: 1px solid #000;
+    }
+
+    &:checked::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff; /* White checkmark */
+      font-size: 1em;
+    }
+  }
+
+  .form-check-input.custom-checkbox {
+    width: 1.25em;
+    height: 1.25em;
+    border: 2px solid #000; /* Black border */
+    border-radius: 0.25em;
+    appearance: none; /* Remove default styles */
+    -webkit-appearance: none; /* Remove default styles in Safari */
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+
+    &:checked {
+      background-color: #000; /* Black background when checked */
+      border: 2px solid #000; /* Maintain black border */
+    }
+
+    &:checked::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff; /* White checkmark */
+      font-size: 1em;
+    }
+  }
+
+  .form-check-label {
+    font-weight: 600; /* Equivalent to fw-semibold */
+  }
+}
+
+.max-w {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+  .max-width-lg {
+    max-width: 300px;
+  }
+}

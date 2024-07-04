@@ -1,0 +1,133 @@
+.app-footer {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  line-height: rem(20px);
+  padding: rem(20px) $app-content-padding-x;
+  background: var(--#{$prefix}body-bg);
+  font-weight: $font-weight-semibold;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; // Adjust the gap as needed
+  opacity: 0.5;
+  @if $enable-rtl {
+    margin-right: $app-sidebar-width;
+  } @else {
+    margin-left: $app-sidebar-width;
+  }
+
+  // For smaller screens
+  @media (max-width: 991.98px) {
+    .footer-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    .footer-link {
+      margin: 5px 0;
+    }
+    .footer-logo {
+      margin-right: 0;
+      margin-bottom: 5px;
+    }
+    .footer-text {
+      margin-bottom: 5px;
+    }
+    .footer-separator {
+      display: none;
+    }
+  }
+
+  // For larger screens
+  @media (min-width: 992px) {
+    .footer-content {
+      display: flex;
+      flex-direction: row;
+    }
+    .footer-logo {
+      width: 60px;
+      object-fit: contain;
+      margin-right: 10px;
+    }
+    .footer-separator {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    padding-left: $app-content-sm-padding-x;
+    padding-right: $app-content-sm-padding-x;
+
+    @if $enable-rtl {
+      margin-right: 0 !important;
+    } @else {
+      margin-left: 0 !important;
+    }
+  }
+}
+
+.app-content-full-width .app-footer {
+  @if $enable-rtl {
+    margin-right: 0;
+  } @else {
+    margin-left: 0;
+  }
+}
+
+.app-sidebar-minified .app-footer {
+  @if $enable-rtl {
+    margin-right: $app-sidebar-minify-width;
+  } @else {
+    margin-left: $app-sidebar-minify-width;
+  }
+}
+
+.app-footer-fixed {
+  & .app-content {
+    padding-bottom: rem(60px);
+  }
+  & .app-footer {
+    position: fixed;
+  }
+}
+
+.footer-logo {
+  width: 60px;
+  object-fit: contain;
+  margin-right: 10px;
+
+  @media (max-width: 991.98px) {
+    margin-right: 0;
+  }
+}
+
+.footer-text,
+.footer-separator,
+.footer-links {
+  margin-bottom: 0;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.footer-link {
+  text-decoration: none;
+  cursor: pointer;
+  // margin: 0 5px;
+}
+
+@media (max-width: 767.98px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-link {
+    margin: 5px 0;
+  }
+}
